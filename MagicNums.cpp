@@ -8,7 +8,6 @@ int main(){
     std::unordered_set<long long int> magicNumbers = {1};
     
     for (long long int i = 2; i <= MAX_NUM; i++) {
-        std::cout << "Processing number: " << i << std::endl;
         unsigned long int tempNum = i;
         while (tempNum >= 1){
             if (magicNumbers.find(tempNum) != magicNumbers.end()) {
@@ -22,7 +21,6 @@ int main(){
         }
 
     }
-
 
     return 0;
 }
