@@ -1,25 +1,25 @@
 #include <iostream>
-#include <vector>
+#include <unordered_set>
+
 
 
 int main(){
     const long long int MAX_NUM = 5000000000; // 5 billion 
-    std::vector<long long int> magicNumbers = {1};
+    std::unordered_set<long long int> magicNumbers = {1};
     
     for (long long int i = 2; i <= MAX_NUM; i++) {
         std::cout << "Processing number: " << i << std::endl;
         unsigned long int tempNum = i;
-        while (tempNum < 1 || std::find(magicNumbers.begin(), magicNumbers.end(), tempNum) != magicNumbers.end())
-        {
-            if (tempNum % 2 == 0) {
+        while (tempNum > 1){
+            if (magicNumbers.find(tempNum) != magicNumbers.end()) {
+                magicNumbers.insert(i);
+                break;
+            } else if (tempNum % 2 == 0) {
                 tempNum /= 2;
             } else {
                 tempNum = (3 * tempNum) + 1;
             }
         }
-        magicNumbers.push_back(tempNum);
-        
-
 
     }
 
