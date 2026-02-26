@@ -14,7 +14,7 @@ int main(){
             if (magicNumbers.find(tempNum) != magicNumbers.end()) {
                 magicNumbers.insert(i);
                 break;
-            } else if (tempNum % 2 == 0) {
+            } else if ((tempNum & 1) == 0) {
                 tempNum >>= 1 ; // equivalent to tempNum /= 2
             } else {
                 tempNum = (3 * tempNum) + 1;
