@@ -10,12 +10,12 @@ int main(){
     for (long long int i = 2; i <= MAX_NUM; i++) {
         std::cout << "Processing number: " << i << std::endl;
         unsigned long int tempNum = i;
-        while (tempNum > 1){
+        while (tempNum >= 1){
             if (magicNumbers.find(tempNum) != magicNumbers.end()) {
                 magicNumbers.insert(i);
                 break;
             } else if (tempNum % 2 == 0) {
-                tempNum /= 2;
+                tempNum >> 1 ; // equivalent to tempNum /= 2
             } else {
                 tempNum = (3 * tempNum) + 1;
             }
